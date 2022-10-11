@@ -17,10 +17,6 @@ export default function Item(props){
         }
     }
 
-    function handleClick(){
-        props.deleteItem(props.id)
-    }
-
     return(
         <ul className="list">
             <li className="item" title={props.text} onClick={toggleDone}>{props.text}<span className="delete" onClick={deleteItem}>x</span></li>
