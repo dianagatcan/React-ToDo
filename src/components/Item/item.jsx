@@ -1,27 +1,12 @@
 import React, { useState } from "react";
 import './styles.css';
-// import ClearIcon from '@mui/icons-material/Clear';
-// import { confirmAlert } from 'react-confirm-alert'; // Import
-// import 'react-confirm-alert/src/react-confirm-alert.css'; // Import cs
 
 export default function Item(props){
-    // const submit = () => {
-    //     confirmAlert({
-    //       title: 'Are you sure?',
-    //       message: 'You want to delete this file?',
-    //       buttons: [
-    //         {
-    //           label: 'Yes',
-    //           onClick: () => props.deleteItem(props.id)
-    //         },
-    //         {
-    //           label: 'No',
-    //         }
-    //       ]
-    //     });
-    //   };
-   
     const [done, setDone] = useState(false);
+
+    function deleteItem(){
+        props.deleteItem(props.id)
+    }
    
     function toggleDone(event){
         if(done){
@@ -37,10 +22,9 @@ export default function Item(props){
     }
 
     return(
-        <div className="item">
-        <li title={props.text} onClick={toggleDone}>{props.text}</li>
-        {/* <ClearIcon onClick={submit} className="delete" /> */}
-        </div>
+        <ul className="list">
+            <li className="item" title={props.text} onClick={toggleDone}>{props.text}<span className="delete" onClick={deleteItem}>x</span></li>
+        </ul>
         
     )
 }
