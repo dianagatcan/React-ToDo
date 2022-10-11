@@ -17,8 +17,9 @@
 }
 
 .delete{
-  text-align: right !important;
+  text-align: right;
   float:right;
   margin-right: 15px;
   cursor: pointer;
+  text-decoration: none !important;
 }
