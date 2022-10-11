@@ -1,0 +1,10 @@
+input {
+    width: 300px;
+    background: transparent;
+    border: solid 3px transparent;
+    border-bottom: dashed 3px black;
+    padding: 10px;
+    font-family: "Hubballi", cursive;
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
