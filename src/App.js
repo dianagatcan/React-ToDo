@@ -5,19 +5,17 @@ import Item from "./components/Item/item";
 
 function App() {
   const[todos, setTodos] = useState([]);
-
+  
+  useEffect(() => {
+    setTodos(JSON.parse(localStorage.getItem('todos')));
+  }, []);
+  
   useEffect(()=>{
-    if(todos.length>0){
-      localStorage.setItem("todos", JSON.stringify(todos));
+    if(todos.length){
+      localStorage.setItem("todos", JSON.stringify(todos))
     }
   }, [todos]);
 
-  useEffect(() => {
-    const todos = JSON.parse(localStorage.getItem('todos'));
-    if (todos) {
-     setTodos(todos);
-    }
-  }, []);
 
   function sendToInput(todo){
     setTodos(prevValue => {
@@ -29,6 +27,9 @@ function App() {
     setTodos(todos.filter((todo, index) =>{
         return id !== index
     }))
+    if(todos.length===1){
+      localStorage.setItem("todos", JSON.stringify([]))
+    }
   }
 
   return (

@@ -1,15 +1,16 @@
-import React, {useState} from "react";
+import React from "react";
 import './styles.css';
 
 export default function Item(props){
+    const {text, id, deleteItem} = props;
 
     function handleDelete(){
-        props.deleteItem(props.id)
+        deleteItem(id)
     }
 
     return(
         <ul className="list">
-            <li className="item" title={props.text}>{props.text}<span className="delete" onClick={handleDelete}>x</span></li>
+            <li className="item" title={text}>{text}<span className="delete" onClick={handleDelete}>x</span></li>
         </ul>
         
     )
